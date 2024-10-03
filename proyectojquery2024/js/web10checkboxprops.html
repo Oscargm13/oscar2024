@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Props on checkbox</h1>
+    <input type="range" id="rango" min="1" max="50" value="1">
+    <span id="valorrango"></span>
+    <h1 style="color: blue" id="resultado">0</h1>
+    <div id="contenedor"></div>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#rango").change(function(){
+                var numeroElementos = parseInt($(this).val());
+                $("#valorrango").text(numeroElementos);
+                $("#contenedor").html("");
+                for(var i = 1; i <= numeroElementos; i++){
+                    var aleatorio = parseInt((Math.random()*500)) + 1
+                    var chk = $("<input>", {"value": aleatorio, "type": "checkbox"});
+                    var label = $("<lable>", {"text": aleatorio});
+                    $("#contenedor").append(chk);
+                    $("#contenedor").append(label);
+                    chk.change(function() {
+                        /*var resultado = parseInt($("#resultado").text());
+                        var valor = parseInt($(this).val());
+                        console.log(valor)*/
+                        //DEBEMOS PREGUNTAR POR EL VALUE DEL CHK PARA SUMAR O RESTAR
+
+                        /*if ($(this).is(":checked") == true) {
+                            resultado += valor;
+
+                        }else{
+                            resultado -= valor;
+                        }
+                        $("#resultado").text(resultado);*/
+                        var resultado = 0;
+                        $("input[type='checked']:checked").each(function(){
+                            var valor = parseInt($(this).val());
+                            resultado += valor;
+                        })
+                        $("#resultado").text(resultado);
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>

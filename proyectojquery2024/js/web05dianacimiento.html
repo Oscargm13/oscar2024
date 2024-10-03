@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Dia de nacimiento</label>
+    <input type="text" name="fecha" id="dia">
+    <label for="">Mes de nacimiento</label>
+    <input type="text" name="fecha" id="mes">
+    <label for="">Año de nacimiento</label>
+    <input type="text" name="fecha" id="anio">
+
+    <button id="btn">boton</button>
+    <h1 id="resultado"></h1>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("#btn").click(function(){
+            var dia = parseInt($("#dia").val());
+            var mes = parseInt($("#mes").val());
+            var anio = parseInt($("#anio").val());
+            var diaS;
+
+            if(mes == 1){
+                mes = 13;
+                anio--;
+            }
+            if(mes == 2){
+                mes = 14;
+                anio--;
+            }
+
+            var op1 = Math.trunc((mes + 1)*3/5);
+            var op2 = Math.trunc(anio / 4);
+            var op3 = Math.trunc(anio / 100);
+            var op4 = Math.trunc(anio / 400);
+            var op5 = Math.trunc(dia + mes * 2 + anio + op1 + op2 - (op3 + op4 + 2));
+            var op6 = Math.trunc(op5 / 7);
+            var op7 = Math.trunc(op5 - op6*7);
+
+            if(op7 == 0){
+                diaS = "SABADO"
+            }if(op7 == 1){
+                diaS = "DOMINGO"
+            }if(op7 == 2){
+                diaS = "LUNES"
+            }if(op7 == 3){
+                diaS = "MARTES"
+            }if(op7 == 4){
+                diaS = "MIERCOLES"
+            }if(op7 == 5){
+                diaS = "JUEVES"
+            }if(op7 == 6){
+                diaS = "VIERNES"
+            }
+
+            $("#resultado").html("Resultado "+diaS);
+            
+        })
+        })
+    </script>
+</body>
+</html>

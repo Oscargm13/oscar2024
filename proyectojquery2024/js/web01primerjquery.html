@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .azul
+        {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- COMENTARIOS DENTRO DE ESTE ENTORNO: CONTROL + K + C  -->
+    <!-- DESCOMENTAR UN COMENTARIO: CONTROL + K + U -->
+    <h1>Selectores Jquery</h1>
+    <button id="boton1" class="azul">pulsar para algo...</button>
+    <h2>soy un titulo</h2>
+    <button id="bt2" class="azul">pulsar para algo...</button>
+    <p>Aprendiendo jquery 1</p>
+    <p>Aprendiendo jquery 2</p>
+    <p>Aprendiendo jquery 3</p>
+    <script src="jquery-3.7.1.js" class="azul"></script>
+    <script>
+        /*AQUI VA NUESTRO CODIGO JQUERY
+        LA PRIMERA LINEA JQUERY SERA QUE REALICE LAS FUNCIONES AL CARGAR LA PAGINA
+        */
+
+        $(Document).ready(function()
+            {
+                alert("Mi primera app!!!");
+                //$("#boton1").hide();
+                // podemos asociar acciones a objetos
+                $("p").click(function()
+                    {
+                        /*IMPRESCINDIBLE PARA EL DESARROLLO FRONT ES LANZAR MENSAJES A CONSOLA*/
+                        console.log("Mostrar mensaje en consola");
+                    }
+                )
+                //$(this).hide();
+                $("#boton1").click(function()
+                {
+                    alert("soy un boton");
+                })
+            })
+    </script>
+</body>
+</html>

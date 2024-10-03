@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Generar botones</h1>
+    <div id="contenedor"></div>
+    <h1 id="suma"></h1>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        var imagen = $("<img>", {"src": "../images/mono.jfif"});
+        for(var i = 1; i <= 10; i++){
+            var boton = $("<input>", {"type": "button", "value": Math.random() * 100});
+            $("#contenedor").append(boton);
+        }
+        $("input").click(function(){
+            var valor = parseInt($(this).val());
+            var suma = parseInt($("#suma").text());
+            if (!suma){
+                suma = 0;
+            }
+            console.log(valor);
+            console.log(suma);
+            $("#suma").text(valor + suma);
+        })
+    </script>
+</body>
+</html>

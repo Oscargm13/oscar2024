@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generar imagenes</h1>
+    <input type="range" id="rango" min="1" max="20" value="1">
+    <span id="valorrango"></span>
+    <div id="contenedor"></div>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#rango").change(function(){
+                var numImagenes = parseInt($(this).val());
+                $("#valorrango").text(numImagenes);
+                //LIMPIAMOS EL CONTENEDOR DE IMAGENES
+                $("#contenedor").text("");
+                for(var i = 1; i <= numImagenes; i++){
+                    var imagen = $("<img>", {"src": "../images/mono.jfif"});
+                    $("#contenedor").append(imagen);
+
+                    imagen.mouseover(function(){
+                        $(this).attr("src", "../images/mono2.jfif");
+                    })
+                    imagen.mouseout(function(){
+                        $(this).attr("src", "../images/mono.jfif");
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>

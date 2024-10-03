@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Controles dinamicos</h1>
+    <!-- --<button>Pulsar para hacer algo</button>
+    <div id="prueba"></div> -->
+    <label for="">Introduzca el texto</label>
+    <input type="text" id="cajatexto">
+    <button id="botongenerar">Generar control</button><br>
+    <div id="contenedor"></div>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            /*$("button").click(function(){
+                alert("boton pulsado");
+                $("#prueba").html("<button id='miboton' onclick='mostrarMensaje()'> boton nuevo</button>")
+            })
+
+            $("#miboton").click(function(){
+                alert("boton NUEVO pulsado!!!");
+            })*/
+            $("#botongenerar").click(function(){
+                var texto = $("#cajatexto").val();
+                var parrafo = $("<p>", {"text": texto, "style": "color:red"})
+                $("#contenedor").append(parrafo);
+                parrafo.click(function(){
+                    $(this).css("color", "blue");
+                    $(this).text("Pulsado!!!");
+                });
+            })
+        })
+        function  mostrarMensaje() {
+                alert("boton NUEVO pulsado!!!");
+            }
+    </script>
+</body>
+</html>

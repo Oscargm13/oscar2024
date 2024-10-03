@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img
+        {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../images/mono.jfif" alt="">
+    <img src="../images/mono.jfif" alt="">
+    <img src="../images/mono.jfif" alt="">
+    <img src="../images/mono.jfif" alt="">
+    <img src="../images/mono.jfif" alt="">
+    <script src="jquery-3.7.1.js" class="azul"></script>
+    <script>
+        $(document).ready(function(){
+            $("img").mouseover(function(){
+                $(this).attr("src", "../images/mono2.jfif");
+            })
+            $("img").mouseout(function(){
+                $(this).attr("src", "../images/mono.jfif");
+            })
+            $("img").click(function(){
+                var image = $(this).attr("src");
+                console.log("Pulsando sobre " + image);
+            })
+        })
+    </script>
+</body>
+</html>
