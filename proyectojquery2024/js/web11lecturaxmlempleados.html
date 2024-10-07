@@ -14,7 +14,7 @@
         $(document).ready(function(){
             $("#botonleer").click(function(){
                 console.log("antes");
-                $.get("documents/empleados.xml", function(data){
+                $.get("../documents/empleados.xml", function(data){
                     console.log("leyendo");
                     var html = "";
                     //DEBEMOS BUSCAR TODAS LA ETIQUETAS <APELLIDOS>
