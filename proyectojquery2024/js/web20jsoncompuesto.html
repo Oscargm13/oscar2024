@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Documento JSON compuesto</h1>
+    <button id="botonload">Cargar clientes</button>
+    <ul id="listaclientes"></ul>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#botonload").click(function(){
+                $.ajax({
+                    url: "../documents/clientes.json",
+                    method: "GET",
+                    dataType: "json",
+                    success: function(data){
+                        console.log("Leyendo...");
+                        var html = "";
+                        $.each(data.clientes, function(index, cliente){
+                            var nombre = cliente.nombre;
+                            html += "<li>Index: " + index + "-" + nombre + "</li>";
+                        })
+                        $("#listaclientes").html(html);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>
