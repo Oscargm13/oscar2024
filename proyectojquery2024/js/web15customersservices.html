@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Customers XML service</h1>
+    <select name="" id="selectcustomers"></select>
+    <button id="botoncargar">Cargar customers</button>
+    <button id="botondepartamentos">Cargar departamentos</button>
+    <h1 id="mensaje" style="color:fuchsia"></h1>
+    <h1 id="datos"></h1>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#botoncargar").click(function(){
+                var url = "https://northwind.netcore.io/customers.xml";
+                var idCustomer = "";
+                $.get(url, function(data){
+                    console.log("Leyendo servicio");
+                    var numeroElementos = $(data).find("d2p1\\:Customer").length;
+                    $("#mensaje").text("Elementos: " + numeroElementos);
+                    $(data).find("d2p1\\:Customer").each(function(){
+                        var contactName = $(this).find("d2p1\\:ContactName").text();
+                        var option = $("<option>", {"text": contactName, "value": idCustomer});
+                            $("#selectcustomers").append(option);
+                    })
+                    $("#selectcustomers").change(function(){
+                        var idCliente = $("#selectcustomers").val();
+                        var nombre = $("#selectcustomers").text();
+                        var url = "https://northwind.netcore.io/customers"+idCustomer+".xml";
+                        $.get(url, function(data){
+                            $(data).find("d2p1\\city").first().text()
+                        })
+                    })
+                })
+                console.log("despues del servicio");
+            })
+        })
+    </script>
+</body>
+</html>

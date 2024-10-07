@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Clientes XML</h1>
+    <div id="contenedor"></div>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            var url = "https://apiclientesxml.azurewebsites.net/api/Clientes"
+            $.get(url, function(data){
+                var numeroElementos = $(data).find("Cliente").length;
+                $(data).find("Cliente").each(function(){
+                        var nombre = $(this).find("Nombre").text();
+                        var idcliente = $(this).find("IdCliente").text();
+                        var boton = $("<button>", {"text": nombre, "id": idcliente});
+                        $("#contenedor").append(boton);
+                        boton.click(function(){
+                            /*var email = $(this).find("email").text();
+                            console.log(email);*/
+                            var nombreCliente = $
+                        })
+                    })
+                $()
+            })
+        })
+        
+    </script>
+</body>
+</html>
