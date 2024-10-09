@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Empleados Oficios</h1>
+    <select name="" id="selectempleados"></select>
+    <table id="tablaempleados" border="1"></table>
+    <label for="">Añadir incremento</label>
+    <input type="number" id="cantidad">
+    <button id="incrementar">incrmentar</button>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        var url = "https://apiempleadosaction.azurewebsites.net/";
+        $(document).ready(function(){
+            loadempleados();
+            $("#selectempleados").change(function(){
+                var request = "api/Empleados";
+                var oficio =  $(this).val();
+                console.log(oficio);
+                $.getJSON(url + request, function(data){
+                    html = "<tr>";
+                        html += "<th>Apellido</th>";
+                        html += "<th>Oficio</th>";
+                        html += "<th>Salario</th>";
+                    html += "</tr>"
+                console.log("leyendo... change");
+                $.each(data, function(index, empleado){
+                    if(empleado.oficio == oficio){
+                        html += "<tr>";  
+                        html += "<td>"+empleado.apellido+"</td>";
+                        html += "<td>"+empleado.oficio+"</td>";
+                        html += "<td>"+empleado.salario+"</td>";
+                        html += "</tr>";
+                    }
+                })
+                $("#tablaempleados").html(html);
+            })
+            })
+            $("#incrementar").click(function(){
+                var incremento = parseInt($("#cantidad").val());
+                var oficio =  $(this).val();
+                console.log(incremento);
+                $.each(data, function(index, empleado){
+                    if(empleado.oficio == oficio){
+                        console.log(oficio);
+                    }
+                })
+            })
+        })
+        function loadempleados(){
+            var request = "api/Empleados";
+            console.log("leyendo...");
+            $.getJSON(url + request, function(data){
+                var html = "";
+                console.log("leyendo...");
+                $.each(data, function(index, empleado){
+                    var option = "<option value='"+empleado.oficio+"'>"+empleado.oficio+"</option>";
+                    $("#selectempleados").append(option);
+                })
+                $("#tablaempleados").html(html);
+            })
+        }
+    </script>
+</body>
+</html>
