@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>practica JQUERY</h1>
+    <select name="" id="selectcursos"></select>
+    <script src="jquery-3.7.1.js"></script>
+    <ul id="lista"></ul>
+    <script>   
+    var url = "https://apiejemplos.azurewebsites.net/";
+    
+        $(document).ready(function(){
+            loadcursos();
+            $("#selectcursos").change(function(){
+                var curso = $("#selectcursos").val()
+                var urlAlumnos = "https://apiejemplos.azurewebsites.net/api/Alumnos/FiltrarCurso/"+curso;
+                $.ajax({
+                    url: urlAlumnos,
+                    type: "GET",
+                success: function(data){
+                    console.log("data")
+                    var html = "";
+                    $.each(data, function(index, alumno){
+                        html += "<li>"+alumno.nombre+" "+alumno.apellidos+"</li>";
+                        $("#lista").html(html);
+                        console.log(alumno)
+                    })
+                    
+                }
+            })
+            })
+        })
+        function loadcursos() {
+            var request = "api/Alumnos/Cursos"
+            $.ajax({
+                url: url + request,
+                type: "GET",
+                success: function(data){
+                    console.log(data)
+                    var html = "";
+                    var option = "";
+                    $.each(data, function(index, curso){
+                        html += "<option>"+curso+"</option>";
+                    })
+                    $("#selectcursos").append(html);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
