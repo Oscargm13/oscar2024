@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Router from './components/Router';
+import MennuRutas from './components/MennuRutas';
+import FormSimple from './components/FormSimple';
+import Collatz from './components/Collatz';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <h1>INDEX PRINCIPAL</h1>
-    <Router />
+    <MennuRutas />
+    <hr/>
+    <Collatz/>
+    <hr/>
     <h2>PIE DE PAGINA</h2>
   </React.StrictMode>
 );
