@@ -3,23 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Router from './components/Router';
-import MennuRutas from './components/MennuRutas';
-import FormSimple from './components/FormSimple';
-import Collatz from './components/Collatz';
-import TablaMultiplicar from './components/TablaMultiplicar';
-import Home from './components/Home';
+import ServicioCustomers from './components/ServicioCustomers';
+import BuscadorCustomer from './components/BuscadorCustomer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <h1>INDEX PRINCIPAL</h1>
-    <MennuRutas />
-    <hr/>
-    <Router/>
-    <hr/>
-    <h2>PIE DE PAGINA</h2>
-  </React.StrictMode>
+    <BuscadorCustomer />
 );
 
 // If you want to start measuring performance in your app, pass a function
