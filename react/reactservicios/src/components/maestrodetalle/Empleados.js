@@ -8,6 +8,7 @@ export default class Empleados extends Component {
   }
   loadEmpleados = () => {
     let idDepartamento = this.props.idDepartamento
+	console.log(this.props)
     var request = "api/empleados/empleadosdepartamento/" + idDepartamento;
     console.log(idDepartamento);
     var url = Global.urlEmpleados + request;
@@ -18,7 +19,7 @@ export default class Empleados extends Component {
     })
   }
   componentDidMount = () => {
-    //this.loadEmpleados();
+	this.loadEmpleados();
   }
   render() {
     return (
@@ -36,7 +37,7 @@ export default class Empleados extends Component {
             {
               this.state.empleados.map((empleado, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td>{empleado.apellido}</td>
                     <td>{empleado.oficio}</td>
                     <td>{empleado.departamento}</td>

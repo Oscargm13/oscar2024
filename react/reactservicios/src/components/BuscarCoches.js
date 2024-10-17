@@ -43,7 +43,7 @@ export default class BuscarCoches extends Component {
                         console.log(this.cajaMarca.value)
                         if(coche.marca == this.cajaMarca.current.value) {
                             return(
-                            <tr>
+                            <tr key={index}>
                                 <td>{coche.marca}</td>
                                 <td>{coche.modelo}</td>
                                 <td>{coche.conductor}</td>

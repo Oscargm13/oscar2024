@@ -9,10 +9,11 @@ import BuscarCoches from './components/BuscarCoches';
 import DepartamentosEmpleados from './components/DepartamentosEmpleados';
 import EmpleadosOficio from './components/EmpleadosOficio';
 import Departamentos from './components/maestrodetalle/Departamentos';
+import DepartamentoEmpleados_II from './components/DepartamentoEmpleados_II';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Departamentos/>
+	<DepartamentoEmpleados_II />
 );
 
 // If you want to start measuring performance in your app, pass a function
