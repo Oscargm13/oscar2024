@@ -13,7 +13,7 @@ import DepartamentoEmpleados_II from './components/DepartamentoEmpleados_II';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<DepartamentoEmpleados_II />
+	<Departamentos />
 );
 
 // If you want to start measuring performance in your app, pass a function

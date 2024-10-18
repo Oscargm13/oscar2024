@@ -4,11 +4,12 @@ import Global from '../../Global'
 
 export default class Empleados extends Component {
   state = {
-    empleados: []
+    empleados: [],
+    texto: ""
   }
   loadEmpleados = () => {
     let idDepartamento = this.props.idDepartamento
-	console.log(this.props)
+    console.log(this.props)
     var request = "api/empleados/empleadosdepartamento/" + idDepartamento;
     console.log(idDepartamento);
     var url = Global.urlEmpleados + request;
@@ -18,13 +19,26 @@ export default class Empleados extends Component {
       })
     })
   }
+
   componentDidMount = () => {
-	this.loadEmpleados();
+    this.loadEmpleados();
   }
+  //RECIBIMOS LAS ANTIGUAS PROPS
+  componentDidUpdate = (oldProps) => {
+    //console.log("leyendo " + this.props.idDepartamento);
+    console.log("Old props: " + oldProps.idDepartamento);
+    console.log("CurrentProps" + this.props.idDepartamento);
+    if (oldProps.idDepartamento != this.props.idDepartamento) {
+      this.loadEmpleados();
+    }
+
+  }
+
   render() {
     return (
       <div>
         <h1>Empleados</h1>
+        <h2>{this.state.texto}</h2>
         <table border="1">
           <thead>
             <tr>
