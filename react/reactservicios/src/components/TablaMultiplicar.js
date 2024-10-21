@@ -2,28 +2,33 @@ import React, { Component } from 'react'
 
 export default class tablaMultiplicar extends Component {
 
-    state = {
-        tabla: []
+  state = {
+    tabla: []
+  }
+  generarTablaMultiplicar = () => {
+    let aux = [];
+    let num = parseInt(this.props.numero);
+    for (var i = 1; i <= 10; i++) {
+      var operacion = num * i;
+      aux.push(operacion);
     }
-    generarTablaMultiplicar = () => {
-        let aux = [];
-        let num = parseInt(this.props.numero);
-        for(var i = 1; i <= 10; i++){
-            var operacion = num * i;
-            aux.push(operacion);
-        }
-        this.setState({
-            tabla: aux
-        })
+    this.setState({
+      tabla: aux
+    })
+  }
+  componentDidMount = () => {
+    this.generarTablaMultiplicar();
+  }
+  componentDidUpdate = (oldProps) => {
+    if (oldProps.numero != this.props.numero) {
+      this.generarTablaMultiplicar();
     }
-    componentDidMount = () => {
-        this.generarTablaMultiplicar();
-    }
+  }
   render() {
     return (
       <div>
         <h1>tablaMultiplicar</h1>
-        <h3 style={{color: "blue"}}>Numero: {this.props.numero}</h3>
+        <h3 style={{ color: "blue" }}>Numero: {this.props.numero}</h3>
         <ul>
           {
             this.state.tabla.map((numero, index) => {

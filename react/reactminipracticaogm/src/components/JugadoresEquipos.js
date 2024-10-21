@@ -54,7 +54,7 @@ export default class JugadoresEquipos extends Component {
         if (this.state.jugadores.length != 0) {
             return (
                 <tr>
-                    <th>Imagen</th>
+                    <th>Imagen</th> 
                     <th>Nombre</th>
                     <th>posicion</th>
                     <th>pais</th>

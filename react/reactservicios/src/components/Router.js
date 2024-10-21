@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import TablaMultiplicar from './TablaMultiplicar'
 import Home from './Home'
 import notFound from './notFound'
+import MenuRutas from './MenuRutas'
 
 export default class Router extends Component {
   
@@ -14,6 +15,7 @@ export default class Router extends Component {
     }
     return (
         <BrowserRouter>
+        <MenuRutas/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
 

@@ -16,9 +16,9 @@ export default class BuscarCoches extends Component {
         axios.get(Global.urlApiCoches + request).then(response => {
             console.log("Leyendo servicio");
             this.setState({
-              coches: response.data
+                coches: response.data
             })
-          })
+        })
     }
 
 
@@ -28,33 +28,36 @@ export default class BuscarCoches extends Component {
                 <h1>BuscarCoches</h1>
                 <form>
                     <label>Introduzca la marca</label>
-                    <input type='text' ref={this.cajaMarca}/>
+                    <input type='text' ref={this.cajaMarca} />
                     <button onClick={this.buscarCoches}>Cargar coches</button>
                 </form>
-                <table border="1">
-                    <tr>
-                        <th>marca</th>
-                        <th>Modelo</th>
-                        <th>Conductor</th>
-                        <th>Imagen</th>
-                    </tr>
-                    {
-                    this.state.coches.map((coche, index)=>{
-                        console.log(this.cajaMarca.value)
-                        if(coche.marca == this.cajaMarca.current.value) {
-                            return(
-                            <tr key={index}>
-                                <td>{coche.marca}</td>
-                                <td>{coche.modelo}</td>
-                                <td>{coche.conductor}</td>
-                                <td><img src={coche.imagen} style={{width: "150px", height: "150px"}}/></td>
-                            </tr>
-                            )
+                <table border="1" className="table table-dark">
+                    <tbody>
+                        <tr>
+                            <th>marca</th>
+                            <th>Modelo</th>
+                            <th>Conductor</th>
+                            <th>Imagen</th>
+                        </tr>
+                        {
+                            this.state.coches.map((coche, index) => {
+                                console.log(this.cajaMarca.value)
+                                if (coche.marca == this.cajaMarca.current.value) {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{coche.marca}</td>
+                                            <td>{coche.modelo}</td>
+                                            <td>{coche.conductor}</td>
+                                            <td><img src={coche.imagen} style={{ width: "150px", height: "150px" }} /></td>
+                                        </tr>
+                                    )
+                                }
+                            })
                         }
-                    })
-                    }
+                    </tbody>
+
                 </table>
-                
+
             </div>
         )
     }
