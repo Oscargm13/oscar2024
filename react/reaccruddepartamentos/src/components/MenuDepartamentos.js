@@ -25,20 +25,6 @@ export default class MenuDepartamentos extends Component {
                 <li className="nav-item">
                   <NavLink className="nav-link active" aria-current="page" to="/update">Modificar Departamento</NavLink>
                 </li>
-                {/* <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                  <ul className="dropdown-menu">
-                    {
-                      this.state.hospitales.map((hospital, index) => {
-                        return (
-                          <li key={index}>
-                            <NavLink to={"/doctores/"+ hospital.idhospital} className={"dropdown-item"}>{hospital.nombre}</NavLink>
-                          </li>
-                        )
-                      })
-                    }
-                  </ul>
-                </li> */}
               </ul>
             </div>
           </div>
