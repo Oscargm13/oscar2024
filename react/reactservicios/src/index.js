@@ -17,12 +17,13 @@ import DepartamentoEmpleados_II from './components/DepartamentoEmpleados_II';
 import TablaMultiplicar from './components/TablaMultiplicar';
 import Router from './components/Router';
 import MenuRutas from './components/MenuRutas';
-import Doctores from "../../reactdoctoreshospital/src/components/Doctores";
+// import Doctores from "../../reactdoctoreshospital/src/components/Doctores";
+import HospitalesMultiple from "./components/HospitalesMultiple";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <div>
-	<Doctores idhospital="22"/>
+	<HospitalesMultiple/>
 </div>
 	
 );
