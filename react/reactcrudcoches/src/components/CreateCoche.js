@@ -20,7 +20,7 @@ export default class CreateCoche extends Component {
 		let imagen = "https://d1gl66oyi6i593.cloudfront.net/wp-content/uploads/2021/03/coches-miticos-historia-automocion-3.jpg";
 		let coche = {
 			idCoche: id,
-			marca: marca,
+			marca: marca, 
 			modelo: modelo,
 			conductor: conductor,
 			imagen: imagen

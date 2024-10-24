@@ -20,7 +20,7 @@ export default class HomeCoches extends Component {
 	}
 
 	componentDidMount = () => {
-		this.loadCoches();
+		this.loadCoches();    
 	}
 
 	render() {
